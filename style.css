@@ -1,0 +1,119 @@
+body {
+  background-color: #585858;
+  box-sizing: border-box;
+}
+
+.container {
+  max-width: 1280px;
+  margin: 0 auto;
+}
+
+h1 {
+  text-align: center;
+  font-size: 40px;
+  color: #282828;
+  padding: 20px 0 10px 0;
+}
+
+h2 {
+  text-align: center;
+  color: #282828;
+}
+
+textarea,
+textarea:focus {
+  display: block;
+  margin: 30px auto;
+  resize: none;
+  background-color: #bebebe;
+  border-radius: 4px 4px 4px 4px;
+  filter: drop-shadow(3px 3px 2px #ff0000);
+  outline: none;
+}
+
+button {
+  border-radius: 10px 10px 10px 10px;
+  cursor: pointer;
+  color: #ff0000;
+  background-color: #383838;
+  transition: 0.25s;
+  outline: none;
+  border: none;
+  padding: 0;
+}
+
+button.active {
+  filter: drop-shadow(3px 3px 2px #ff0000);
+  transition: 0.25s;
+}
+
+sup {
+  padding-right: 10px;
+  margin-bottom: 10px;
+}
+
+.keyboard-container {
+  display: flex;
+  flex-direction: column;
+  row-gap: 10px;
+  width: 1280px;
+}
+
+.row {
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  column-gap: 14px;
+}
+
+.arrows-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  min-width: 228px;
+  row-gap: 10px;
+}
+
+.arrows-top {
+  display: flex;
+  justify-content: center;
+}
+
+.arrows-bottom {
+  display: flex;
+  justify-content: space-between;
+}
+
+.btn-simple {
+  width: auto;
+  min-width: 70px;
+  height: 60px;
+  padding: 0 10px;
+  font-size: 16px;
+}
+
+.btn-spec {
+  width: 100%;
+  min-width: 60px;
+  height: 60px;
+  padding: 0 10px;
+  font-size: 20px;
+  background-color: #282828;
+}
+
+.btn-simple.active,
+.btn-spec.active {
+  background-color: #808080;
+}
+
+.space {
+  min-width: 500px;
+}
+
+button[data-code="ArrowUp"],
+button[data-code="ArrowDown"],
+button[data-code="ArrowLeft"],
+button[data-code="ArrowRight"] {
+  max-width: 70px;
+  height: 30px;
+}
