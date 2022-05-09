@@ -1,10 +1,10 @@
 export default class Keyboard {
 
-    constructor(keys) {
+    constructor(keys, lang) {
         this.value = '';
         this.isCapsOn = false;
         this.isShiftPressed = false;
-        this.lang = 'en';
+        this.lang = lang;
         this.keys = keys;
     }
 
@@ -88,6 +88,7 @@ export default class Keyboard {
         const container = document.querySelector('.keyboard-container');
         container.innerHTML += `<div class="row row-${i}"></div>`;
         const rowContainer = document.querySelector(`.row-${i}`);
+        const isLangEn = this.lang === 'en';
         for (let i = 0; i < data.length; i++) {
             if (Array.isArray(data[i])) {
                 const arrowsContainer = document.createElement('div');
@@ -113,10 +114,20 @@ export default class Keyboard {
                 btn.setAttribute('data-code', data[i].code);
 
                 if (Array.isArray(data[i].content)) {
-                    btn.innerHTML += `<sup>${data[i].content[0]}</sup>`;
-                    btn.innerHTML += `${data[i].content[1]}`;
+                    const btnsToChange = ['Backquote', 'BracketLeft', 'BracketRight', 'Semicolon', 'Quote', 'Comma', 'Period'];
+                    if (!isLangEn && btnsToChange.includes(data[i].code)) { btn.innerHTML = `${data[i].ru}`; }
+                    else if (!isLangEn && data[i].code === 'Slash') {
+                        btn.innerHTML += `<sup>${data[i].ru[0]}</sup>`;
+                        btn.innerHTML += `${data[i].ru[1]}`;
+                    }
+                    else {
+                        btn.innerHTML += `<sup>${data[i].content[0]}</sup>`;
+                        btn.innerHTML += `${data[i].content[1]}`;
+                    }
                 } else {
-                    btn.innerHTML += `${data[i].content}`;
+                    btn.innerHTML += isLangEn || data[i].type === 'spec'
+                        ? `${data[i].content}`
+                        : `${data[i].ru}`;
                 }
                 btn.classList.add(`btn-${data[i].type}`);
                 if (data[i].code === 'Space') { btn.classList.add('space'); }

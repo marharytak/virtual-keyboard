@@ -224,12 +224,14 @@ const keys = [
         {
             content: [":", ";"],
             code: "Semicolon",
-            type: "simple"
+            type: "simple",
+            ru: 'Ж'
         },
         {
             content: ['"', "'"],
             code: "Quote",
-            type: "simple"
+            type: "simple",
+            ru: 'Э'
         },
         {
             content: "Enter",
